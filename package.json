@@ -19,5 +19,8 @@
     "gulp-rigger": "^0.5.8",
     "gulp-sass": "^3.2.1",
     "gulp-watch": "^5.0.0"
+  },
+  "dependencies": {
+    "gulp-flatten": "^0.4.0"
   }
 }

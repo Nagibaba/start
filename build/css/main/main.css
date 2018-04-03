@@ -519,6 +519,14 @@ body {
 	font-family:Lato-Black;
 	src:url("fonts/Lato-Black.ttf");
 } */
+@font-face {
+  font-family: jaznb;
+  src: url("../../fonts/jaznb.eot");
+  src: url("../../fonts/jaznb.eot?#iefix") format("embedded-opentype"), url("../../fonts/jaznb.woff2") format("woff2"), url("../../fonts/jaznb.woff") format("woff"), url("../../fonts/jaznb.ttf") format("truetype"), url("../../fonts/jaznb.svg#jaznb") format("svg"); }
+
+span {
+  font-family: jaznb, Helvetica, Arial, sans-serif; }
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */

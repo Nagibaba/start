@@ -11,6 +11,7 @@ var minify = require('gulp-minify');
 var minifyCSS=require('gulp-minify-css');
 var rename = require("gulp-rename"); //minify elediyimiz dosyanın adını değiştirmek için kullandık bunu
 var concat = require('gulp-concat'); //tüm js dosyalarını birleştirip all.js diye bir js dosyasında toplamak için
+var flatten = require('gulp-flatten'); //fondaki klasör altında olan fontları tek klasöre toplamak için
 
 
 var path = {
@@ -123,10 +124,11 @@ gulp.task('vendor:build', function () {
 
 gulp.task('fonts:build', function() {
     gulp.src(path.src.fonts)
-        .on('error', function(err) {
+    .on('error', function(err) {
         console.log(err)
         this.emit('end')
     })
+    .pipe(flatten())
     .pipe(gulp.dest(path.build.fonts))
 });
 
