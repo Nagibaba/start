@@ -46,12 +46,12 @@ var path = {
 
 
 gulp.task('html:build', function () {
-    gulp.src(path.src.html) //Выберем файлы по нужному пути
+    gulp.src(path.src.html) 
     .on('error', function(err) {
         console.log(err)
         this.emit('end')
     })
-        .pipe(rigger()) //Прогоним через rigger
+        .pipe(rigger()) //rigger ile dosyaları birleşdiriyoruz header footer gibi komponentleri import ediyoruz bir nevi
         .pipe(gulp.dest(path.build.html)); //Выплюнем их в папку build
     });
 
@@ -61,13 +61,13 @@ gulp.task('js:build', function () {
     gulp.src(path.src.js) //burdakileri al derle
 
     .pipe(concat('all.js'))
-    .pipe(gulp.dest(path.build.js))
+    .pipe(gulp.dest(path.build.js)) //minify etmeden all.js dosyasını ekledik aşağıdaki noSource: true  komutunu silersek buna gerek olmayacak sanırım denemedim ama mantık olarak o kod minify olunmamışını eklemesini engelliyor
     .pipe(minify({
         ext:{
 
             min:'.min.js'
         },
-        noSource:true //bu dist altındaki js klasörüne düşen index.jsyi düşürmüyorsadece min olan düşüyor 
+        noSource:true //bu build altındaki js klasörüne düşen index.js yi düşürmüyor sadece min olan düşüyor 
     }))
     
     
